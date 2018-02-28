@@ -1,0 +1,11 @@
+elasticsearch:
+ clustername: xmp-cluster
+ host: localhost
+ port: 9300
+
+
+
+
+#  elasticsearch.clustername = mkyong-cluster
+#  elasticsearch.host = localhost
+#  elasticsearch.port = 9300
