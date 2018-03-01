@@ -15,7 +15,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +34,7 @@ public class ElasticsearchApplication implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         printElasticSearchInfo();
+        //插入10条信息
         for (long i = 0; i < 10; i++) {
             Author author = new Author(null, "xmp", null);
 //            System.out.println(author);
@@ -48,16 +48,16 @@ public class ElasticsearchApplication implements CommandLineRunner {
         List<Article> articleList = articleService.findByTitle("title");
 
 //        articles.forEach(x -> System.out.println(x));
-//        articleList.forEach(article -> {
-//            System.out.println(article);
-//        });
+        articleList.forEach(article -> {
+            System.out.println(article);
+        });
 
-        String queryString = "xmp";//搜索关键字
-        Iterable<Article> searchResult = articleService.search(queryString);
-        Iterator<Article> iterator = searchResult.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+//        String queryString = "test1";//搜索关键字
+//        Iterable<Article> searchResult = articleService.search(queryString);
+//        Iterator<Article> iterator = searchResult.iterator();
+//        while (iterator.hasNext()) {
+//            System.out.println(iterator.next());
+//        }
     }
 
     private void printElasticSearchInfo() {
