@@ -1,0 +1,69 @@
+//syntax = "proto3";
+//import "type.proto";
+//
+//option java_package = "cn.xmp.generator.demo.user.api";
+//option java_outer_classname = "AppUserProto";
+//
+//message AppUserDTO {
+//    //主键
+//    Long id = 1;
+//    //姓名
+//    String name = 2;
+//    //昵称
+//    String nickName = 3;
+//    //密码
+//    String password = 4;
+//    //邮箱
+//    String email = 5;
+//    //创建人
+//    Long createdBy = 6;
+//    //创建时间
+//    Long createdTime = 7;
+//    //更新人
+//    Long updatedBy = 8;
+//    //更新时间
+//    Long updatedTime = 9;
+//    //删除标识(1在线2删除)
+//    Integer deleted = 10;
+//
+//}
+//message AppUserRequest {
+//    Integer pageNumber = 5;
+//    Integer pageSize = 6;
+//}
+//message AppUserResponse {
+//    Integer returnCode = 1;
+//    string message = 2;
+//    AppUserDTO dataInfo = 3;
+//}
+//
+//message AppUserPageResponse {
+//    Integer returnCode = 1;
+//    string message = 2;
+//    repeated AppUserDTO records = 3;
+//    int32 current = 4;
+//    int32 size = 5;
+//    int32 total = 6;
+//    int32 pages = 7;
+//    int32 offset = 8;
+//    int32 limit = 9;
+//    string orderByField = 10;
+//    bool searchCount = 11;
+//    bool optimizeCount = 12;
+//    bool isAsc = 13;
+//}
+//service AppUserService {
+//    rpc add (AppUserDTO) returns (AppUserResponse) {
+//    }
+//    rpc query (AppUserDTO) returns (AppUserResponse) {
+//    }
+//    rpc update (AppUserDTO) returns (AppUserResponse) {
+//    }
+//    rpc delete (AppUserDTO) returns (AppUserResponse) {
+//    }
+//    rpc page (AppUserRequest) returns (AppUserPageResponse) {
+//    }
+//}
+//
+//
+//

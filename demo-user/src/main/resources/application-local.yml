@@ -1,0 +1,18 @@
+#app:
+#  datasource:
+#    host: localhost
+#    port: 3306
+#    username: root
+#    password: bxB7L/WafOEgaahKnQn55lcqFmeImCfkenjx/usmzkeFXHVxGR52jNk8+RXLBYpXb4rPc1AwGqC4ySBkL47qIg==
+#    druid:
+#      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJjqPF0YxWsqM5lf5kUzeZOaJAsIQV3k0YQ5aj3GBzZ63SZwNKbcgw5BtyZf/EZZY3k1O18YfMswO2Bv59R4vicCAwEAAQ==
+#
+#logging:
+#  level:
+#    cn.vpclub.moses: debug
+#
+#
+#
+#hazelcast:
+#  servers:
+#    - hazelcast-local:5701

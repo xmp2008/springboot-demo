@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xmp.generator.demo.user.mapper.AppUserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="cn.xmp.generator.demo.user.entity.AppUser">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="nick_name" property="nickName" />
+		<result column="password" property="password" />
+		<result column="email" property="email" />
+		<result column="created_by" property="createdBy" />
+		<result column="created_time" property="createdTime" />
+		<result column="updated_by" property="updatedBy" />
+		<result column="updated_time" property="updatedTime" />
+		<result column="deleted" property="deleted" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, nick_name AS nickName, password, email, created_by AS createdBy, created_time AS createdTime, updated_by AS updatedBy, updated_time AS updatedTime, deleted
+    </sql>
+
+</mapper>

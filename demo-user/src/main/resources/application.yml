@@ -1,0 +1,127 @@
+## application properties
+#app:
+#  name: demo-user
+#  project: xmp
+#  role: admin
+#  descriptions: ''
+#  cluster-name: xmp
+#  datasource:
+#    name: springlearn
+#    host: localhost
+#    username: root
+#    password: bxB7L/WafOEgaahKnQn55lcqFmeImCfkenjx/usmzkeFXHVxGR52jNk8+RXLBYpXb4rPc1AwGqC4ySBkL47qIg==
+#    druid:
+#      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJjqPF0YxWsqM5lf5kUzeZOaJAsIQV3k0YQ5aj3GBzZ63SZwNKbcgw5BtyZf/EZZY3k1O18YfMswO2Bv59R4vicCAwEAAQ==
+#
+#spring:
+#  profiles:
+#    include:
+#      - shiro
+#      - web
+#      - hazelcast
+#      - logging
+#      - logging-file
+#      - locale
+#      - swagger
+#      - mybatisplus-rws
+#      - cors
+#      - kafka-logging
+#shiro:
+#  filter-chain-definitions: #默认为空，一般如下配置
+#    /app/**: anon
+#    /admin/**: authc
+#    /getPermissions: authc
+#  permission-package: cn.xmp.generator.demo.user.web
+#
+#mybatis:
+#  typeAliasesPackage: "cn.xmp.generator.demo.user.entity"
+#  #checkConfig-location: false
+#  mapper-locations: "classpath:cn/xmp/generator/demo/user/mapper/xml/*Mapper.xml"
+#
+#
+##api doc
+#swagger:
+#  title: "demo-user-API-Documents-xiemopeng"
+#  web-base-package: cn.xmp.generator.demo.user.web
+
+
+#app
+server:
+    port: 8081
+
+#spring
+spring:
+  devtools:
+    restart:
+      enabled: false
+
+  # H2 DATABASE CONFIG
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springlearn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/xml/*Mapper.xml
+  typeAliasesPackage: cn.xmp.generator.demo.user.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置
+    #logic-delete-value: 0
+    #logic-not-delete-value: 1
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+    #自定义SQL注入器
+    #sql-injector: com.baomidou.springboot.xxx
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+#logging
+logging:
+  level: info
+
+audience:
+  clientId: 098f6bcd4621d373cade4e832627b4f6
+  base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
+  name: restapiuser
+  expiresSecond: 172800
+
+gradeCode:
+  lists:
+    - 39_FXYTC_YC0
+    - 39_FXYTC_YC50
+    - 39_FXYTC_YC100
+    - 49_FXYTC_YC0
+    - 49_FXYTC_YC50
+    - 49_FXYTC_YC100
+    - RZK2018_1Y_YC0
+    - RZK2018_1Y_YC50
+    - RZK2018_1Y_YC100
+    - 39_BKTC_YC0
+    - 39_BKTC_YC50
+    - 39_BKTC_YC100
+    - SST_198RWY_YC0
+    - SST_198RWY_YC50
+    - SST_198RWY_YC100
+    - 49_FXYTC_YC0
+    - 49_FXYTC_YC50
+    - 49_FXYTC_YC100
+    - 78Y_RWY_CX
+    - 78Y_RWY_CX_YC50
+    - 78Y_RWY_CX_YC100
+    - 98Y_RWY_CX
+    - 98Y_RWY_CX_YC50
+    - 98Y_RWY_CX_YC100
