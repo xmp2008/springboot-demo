@@ -40,7 +40,6 @@ public class HTTPBearerAuthorizeAttribute implements Filter {
             throws IOException, ServletException {
         // TODO Auto-generated method stub
 
-//        ResultMsg resultMsg;
         BaseResponse baseResponse = new BaseResponse();
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String auth = httpRequest.getHeader("AccessToken");
@@ -63,7 +62,6 @@ public class HTTPBearerAuthorizeAttribute implements Filter {
 
         ObjectMapper mapper = new ObjectMapper();
 
-//        resultMsg = new ResultMsg(ResultStatusCode.INVALID_TOKEN.getErrcode(), ResultStatusCode.INVALID_TOKEN.getErrmsg(), null);
         baseResponse = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1010.getCode());
         httpResponse.getWriter().write(mapper.writeValueAsString(baseResponse));
         return;

@@ -4,6 +4,8 @@ import cn.xmp.generator.demo.user.enums.ReturnCodeEnum;
 import cn.xmp.generator.demo.user.model.response.BaseResponse;
 import cn.xmp.generator.demo.user.utils.BackResponseUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import sun.misc.BASE64Decoder;
 
 import javax.servlet.*;
@@ -18,13 +20,15 @@ import java.io.IOException;
  * @author xiemopeng
  * @since 2019/2/15
  */
-
-
+//@Service
+@Slf4j
 @SuppressWarnings("restriction")
 public class HTTPBasicAuthorizeAttribute implements Filter {
 
-    private static String Name = "test";
-    private static String Password = "test";
+    @Value("${BasicAuthorName}")
+    private String name = "test";
+    @Value("${BasicAuthorPassword}")
+    private String password = "test";
 
     @Override
     public void destroy() {
@@ -46,7 +50,6 @@ public class HTTPBasicAuthorizeAttribute implements Filter {
 
             ObjectMapper mapper = new ObjectMapper();
 
-//            ResultMsg resultMsg = new ResultMsg(ResultStatusCode.PERMISSION_DENIED.getErrcode(), ResultStatusCode.PERMISSION_DENIED.getErrmsg(), null);
             httpResponse.getWriter().write(mapper.writeValueAsString(resultStatusCode));
             return;
         } else {
@@ -72,10 +75,10 @@ public class HTTPBasicAuthorizeAttribute implements Filter {
                     String decodedAuth = getFromBASE64(auth);
                     if (decodedAuth != null) {
                         String[] UserArray = decodedAuth.split(":");
-
+                        log.info("Name:{},Password:{}", name, password);
                         if (UserArray != null && UserArray.length == 2) {
-                            if (UserArray[0].compareTo(Name) == 0
-                                    && UserArray[1].compareTo(Password) == 0) {
+                            if (UserArray[0].compareTo(name) == 0
+                                    && UserArray[1].compareTo(password) == 0) {
                                 response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1000.getCode());
                                 return response;
                             }

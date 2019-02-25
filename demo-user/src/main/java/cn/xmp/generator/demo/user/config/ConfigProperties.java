@@ -1,9 +1,11 @@
 package cn.xmp.generator.demo.user.config;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -12,35 +14,19 @@ import java.util.List;
  * @author xiemopeng
  * @since 2019/1/9
  */
+@Data
 @Component
-@ConfigurationProperties(prefix = "gradeCode")
+@ConfigurationProperties(prefix = "xx.test")
 public class ConfigProperties {
 
-    private List<String> lists;
+    private String str;
 
-    /**
-     * 设置 lists
-     *
-     * @param lists
-     */
-    public void setLists(List<String> lists) {
-        this.lists = lists;
-    }
+    private String[] testArray;
 
-    /**
-     * @return 获取 lists
-     */
-    public List<String> getLists() {
-        return lists;
-    }
+    private List<Map<String, String>> listMap;
 
-    /**
-     * @return
-     * @see [说明这个方法]
-     */
-    @Override
-    public String toString() {
-        return "ConfigProperties [ lists=" + lists + "]";
-    }
+    private List<String> listStr;
+
+    private Map<String, String> map;
 
 }

@@ -2,6 +2,7 @@ package cn.xmp.generator.demo.user.web;
 
 import cn.xmp.generator.demo.user.config.Audience;
 import cn.xmp.generator.demo.user.config.ConfigProperties;
+import cn.xmp.generator.demo.user.config.GradeCodeConfigProperties;
 import cn.xmp.generator.demo.user.entity.AppUser;
 import cn.xmp.generator.demo.user.enums.ReturnCodeEnum;
 import cn.xmp.generator.demo.user.model.request.AppUserPageParam;
@@ -36,7 +37,9 @@ public class AppUserController {
 
     private Audience audience;
 
-    private ConfigProperties configProperties;
+    private GradeCodeConfigProperties configProperties;
+
+    private ConfigProperties config;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
@@ -139,12 +142,21 @@ public class AppUserController {
         return response;
     }
 
+    @RequestMapping(value = "/getGradeCodeConfig", method = RequestMethod.GET)
+    @ResponseBody
+    public Object getGradeCodeConfig() {
+        BaseResponse response = new BaseResponse();
+        response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1000.getCode());
+        response.setDataInfo(configProperties);
+        return response;
+    }
+
     @RequestMapping(value = "/getConfig", method = RequestMethod.GET)
     @ResponseBody
     public Object getConfig() {
         BaseResponse response = new BaseResponse();
         response = BackResponseUtil.getBaseResponse(ReturnCodeEnum.CODE_1000.getCode());
-        response.setDataInfo(configProperties);
+        response.setDataInfo(config);
         return response;
     }
 }

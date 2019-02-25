@@ -55,7 +55,7 @@ spring:
     restart:
       enabled: false
 
-  # H2 DATABASE CONFIG
+  #DATABASE CONFIG
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/springlearn?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
@@ -125,3 +125,25 @@ gradeCode:
     - 98Y_RWY_CX
     - 98Y_RWY_CX_YC50
     - 98Y_RWY_CX_YC100
+
+xx:
+  test:
+    str: strTest
+    testArray: 1,2,3,a  #这种对象形式的，只能单独写一个对象去接收，所以无法使用@value注解获取
+    listMap:
+      - host: weihu01
+        port: 10
+        active: 9
+      - host: weihu02
+        port: 11
+        active: 8
+    listStr:
+      - name
+      - value
+    map:
+      a: a
+      b: b
+
+#http basic认证密钥:BasicAuthorName:BasicAuthorName base64编码后的字符串
+BasicAuthorName: test
+BasicAuthorPassword: test
